@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #2c001e;
+  font-family: "Ubuntu Mono", monospace;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Window chrome ─────────────────────────────── */
+.window {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  border: 1px solid #3c3c3c;
+}
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2d2d2d;
+  padding: 6px 12px;
+  user-select: none;
+}
+
+.title-bar .buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.title-bar .btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-close {
+  background: #e95420;
+}
+.btn-minimize {
+  background: #f99b11;
+}
+.btn-maximize {
+  background: #38b44a;
+}
+
+.title-bar .title {
+  color: #ccc;
+  font-size: 13px;
+}
+
+/* ── Terminal area ─────────────────────────────── */
+.terminal {
+  flex: 1;
+  background: #300a24;
+  color: #e0e0e0;
+  padding: 12px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.terminal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal::-webkit-scrollbar-track {
+  background: #300a24;
+}
+
+.terminal::-webkit-scrollbar-thumb {
+  background: #5e2750;
+  border-radius: 4px;
+}
+
+.output-line {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.output-line.error {
+  color: #e95420;
+}
+
+.output-line.welcome {
+  color: #38b44a;
+}
+
+/* ── Prompt ────────────────────────────────────── */
+.prompt-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  color: #38b44a;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+
+.prompt .at {
+  color: #e0e0e0;
+}
+
+.prompt .colon {
+  color: #e0e0e0;
+}
+
+.prompt .path {
+  color: #729fcf;
+}
+
+.prompt .dollar {
+  color: #e0e0e0;
+}
+
+.input-field {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e0e0e0;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 14px;
+  caret-color: #e0e0e0;
+}
+
+/* ── Loading ───────────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #300a24;
+  color: #e0e0e0;
+  font-size: 18px;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5e2750;
+  border-top-color: #e95420;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
